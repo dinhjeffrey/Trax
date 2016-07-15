@@ -132,6 +132,23 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         selectWaypoint((popoverPresentationController.presentedViewController as? EditWaypointViewController)?.waypointToEdit)
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return traitCollection.horizontalSizeClass == .Compact ? .OverFullScreen : .None // if horizontally compact, don't adapt
+    }
+    
+    func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+        if style == .FullScreen || style == .OverFullScreen {
+            let navcon = UINavigationController(rootViewController: controller.presentedViewController)
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
+            visualEffectView.frame = navcon.view.bounds
+            visualEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            navcon.view.insertSubview(visualEffectView, atIndex: 0)
+            return navcon // "Done" button was kept before, even after we deleted the navigation controller because button items are associated with the MVC. Even unwind works, it still hook up to that.
+        } else {
+            return nil
+        }
+    }
+    
     @IBAction func addWaypoint(sender: UILongPressGestureRecognizer) {
         if sender.state == .Began {
             let coordinate = mapView.convertPoint(sender.locationInView(mapView), toCoordinateFromView: mapView)
