@@ -41,6 +41,11 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate {
         stopListeningToTextFields()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        preferredContentSize = view.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+    }
+    
     private var ntfObserver: NSObjectProtocol?
     private var itfObserver: NSObjectProtocol?
     
