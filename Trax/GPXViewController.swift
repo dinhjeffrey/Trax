@@ -96,6 +96,16 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: Navigation
     
+    @IBAction func updatedUserWaypoint(segue: UIStoryboardSegue) {
+        selectWaypoint((segue.sourceViewController.contentViewController as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    private func selectWaypoint(waypoint: GPX.Waypoint?) {
+        if waypoint != nil {
+            mapView.selectAnnotation(waypoint!, animated: true)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = segue.destinationViewController.contentViewController
         let annotationView = sender as? MKAnnotationView

@@ -114,7 +114,7 @@
                     <navigationItem key="navigationItem" id="WUE-Lc-bt7">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="dzC-Nd-Gp1">
                             <connections>
-                                <action selector="done:" destination="75k-j3-lhL" id="9Uj-6T-92G"/>
+                                <segue destination="2uM-6C-KeR" kind="unwind" unwindAction="updatedUserWaypoint:" id="MjC-dg-hab"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -124,6 +124,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0f-oW-pOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2uM-6C-KeR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2820" y="-504"/>
         </scene>

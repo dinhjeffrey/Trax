@@ -41,11 +41,6 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate {
         stopListeningToTextFields()
     }
     
-    @IBAction func done(sender: UIBarButtonItem) {
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
     private var ntfObserver: NSObjectProtocol?
     private var itfObserver: NSObjectProtocol?
     
