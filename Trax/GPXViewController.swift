@@ -33,6 +33,32 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         mapView?.showAnnotations(waypoints, animated: true)
     }
     
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        var view: MKAnnotationView! = mapView.dequeueReusableAnnotationViewWithIdentifier(Constants.AnnotationViewReuseIdentifier)
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: Constants.AnnotationViewReuseIdentifier)
+            view.canShowCallout = true
+        } else {
+            view.annotation = annotation
+        }
+        view.leftCalloutAccessoryView = nil
+        if let waypoint = annotation as? GPX.Waypoint {
+            if waypoint.thumbnailURL != nil {
+                view.leftCalloutAccessoryView = UIButton(frame: Constants.LeftCalloutFrame)
+            }
+        }
+        return view
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        if let thumbnailImageButton = view.leftCalloutAccessoryView as? UIButton,
+            let url = (view.annotation as? GPX.Waypoint)?.thumbnailURL,
+            let imageData = NSData(contentsOfURL: url), // blocks main queue
+            let image = UIImage(data: imageData){
+            thumbnailImageButton.setImage(image, forState: .Normal)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx")
@@ -45,6 +71,12 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    private struct Constants {
+        static let LeftCalloutFrame = CGRect(x: 0, y: 0, width: 59, height: 59)
+        static let AnnotationViewReuseIdentifier = "waypoint"
+        static let ShowImageSegue = "Show Image"
+        static let EditUserWaypoint = "Edit Waypoint"
+    }
     
     
     
