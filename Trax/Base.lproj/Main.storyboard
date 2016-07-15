@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Trax-->
@@ -37,6 +38,7 @@
                     <connections>
                         <outlet property="mapView" destination="BLE-Ko-jFV" id="iSA-Po-rNJ"/>
                         <segue destination="cyq-39-qge" kind="show" identifier="Show Image" id="zPY-Nq-XPV"/>
+                        <segue destination="75k-j3-lhL" kind="presentation" identifier="Edit Waypoint" id="Tv7-DK-9u4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,6 +49,76 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1192" y="348"/>
+        </scene>
+        <!--Edit Waypoint View Controller-->
+        <scene sceneID="Il7-yp-OM0">
+            <objects>
+                <viewController id="75k-j3-lhL" customClass="EditWaypointViewController" customModule="Trax" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aNW-fy-l8u"/>
+                        <viewControllerLayoutGuide type="bottom" id="IS5-P7-BeH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vkt-A9-GNg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-vk-UUI">
+                                <rect key="frame" x="20" y="20" width="560" height="68"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dMR-Om-G9W">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykl-Mz-p8B">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KN5-Bu-X8X">
+                                                <rect key="frame" x="96" y="0.0" width="464" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hvQ-lZ-vpZ">
+                                        <rect key="frame" x="0.0" y="38" width="560" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="og7-QP-vxR">
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Je-yN-sUY">
+                                                <rect key="frame" x="96" y="0.0" width="464" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="og7-QP-vxR" firstAttribute="width" secondItem="Ykl-Mz-p8B" secondAttribute="width" id="55d-ZB-IQU"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Hu0-vk-UUI" secondAttribute="leading" id="2B8-CE-eOf"/>
+                            <constraint firstItem="Hu0-vk-UUI" firstAttribute="top" secondItem="aNW-fy-l8u" secondAttribute="bottom" id="4El-BE-hlB"/>
+                            <constraint firstItem="IS5-P7-BeH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Hu0-vk-UUI" secondAttribute="bottom" constant="8" symbolic="YES" id="DB7-5p-lJo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hu0-vk-UUI" secondAttribute="trailing" id="wUk-fW-54v"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoTextField" destination="9Je-yN-sUY" id="wYk-Zd-LYF"/>
+                        <outlet property="nameTextField" destination="KN5-Bu-X8X" id="gMX-yf-9Fn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N0f-oW-pOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008" y="-504"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="LyI-6q-j12">
