@@ -11,6 +11,13 @@ import MapKit
 
 class GPXViewController: UIViewController, MKMapViewDelegate {
     
+    @IBOutlet weak var mapView: MKMapView! {
+        didSet {
+            mapView.mapType = .Satellite
+            mapView.delegate = self
+        }
+    }
+    
     var gpxURL: NSURL? {
         didSet {
             clearWaypoints()
@@ -22,6 +29,11 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
                 }
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx")
     }
     
     private func clearWaypoints() {
@@ -65,18 +77,37 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        gpxURL = NSURL(string: "http://cs193p.stanford.edu/Vacation.gpx")
-    }
-    
-    @IBOutlet weak var mapView: MKMapView! {
-        didSet {
-            mapView.mapType = .Satellite
-            mapView.delegate = self
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView {
+            performSegueWithIdentifier(Constants.ShowImageSegue, sender: view)
         }
     }
+    
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController.contentViewController
+        let annotationView = sender as? MKAnnotationView
+        let waypoint = annotationView?.annotation as? GPX.Waypoint
+        
+        if segue.identifier == Constants.ShowImageSegue {
+            if let ivc = destination as? ImageViewController {
+                ivc.imageURL = waypoint?.imageURL
+                ivc.title = waypoint?.name
+            }
+        }
+    }
+    
+    @IBAction func addWaypoint(sender: UILongPressGestureRecognizer) {
+        if sender.state == .Began {
+            let coordinate = mapView.convertPoint(sender.locationInView(mapView), toCoordinateFromView: mapView)
+            let waypoint = GPX.Waypoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            waypoint.name = "Dropped"
+            mapView.addAnnotation(waypoint)
+        }
+    }
+    
+    // MARK: Constants
     
     private struct Constants {
         static let LeftCalloutFrame = CGRect(x: 0, y: 0, width: 59, height: 59)
@@ -112,5 +143,15 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     
     
     
+}
+
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? navcon
+        } else {
+            return self
+        }
+    }
 }
 
