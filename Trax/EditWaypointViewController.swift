@@ -41,6 +41,9 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate {
         stopListeningToTextFields()
     }
     
+    @IBAction func done(sender: UIBarButtonItem) {
+        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     private var ntfObserver: NSObjectProtocol?
@@ -65,7 +68,7 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate {
             queue: queue)
         { notification in
             if let waypoint = self.waypointToEdit {
-                waypoint.name = self.infoTextField.text
+                waypoint.info = self.infoTextField.text
             }
         }
     }
