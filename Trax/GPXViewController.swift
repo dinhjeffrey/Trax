@@ -52,12 +52,19 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if let thumbnailImageButton = view.leftCalloutAccessoryView as? UIButton,
-            let url = (view.annotation as? GPX.Waypoint)?.thumbnailURL,
-            let imageData = NSData(contentsOfURL: url), // blocks main queue
-            let image = UIImage(data: imageData){
-            thumbnailImageButton.setImage(image, forState: .Normal)
+            let url = (view.annotation as? GPX.Waypoint)?.thumbnailURL {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if let imageData = NSData(contentsOfURL: url) { // blocks main queue
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if let image = UIImage(data: imageData) {
+                            thumbnailImageButton.setImage(image, forState: .Normal)
+                        }
+                    }
+                }
+            }
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
