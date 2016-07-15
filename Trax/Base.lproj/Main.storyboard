@@ -37,8 +37,10 @@
                     <navigationItem key="navigationItem" title="Trax" id="ecg-mb-an5"/>
                     <connections>
                         <outlet property="mapView" destination="BLE-Ko-jFV" id="iSA-Po-rNJ"/>
-                        <segue destination="yxw-4B-bpA" kind="presentation" identifier="Edit Waypoint" id="Tv7-DK-9u4"/>
                         <segue destination="CV6-6J-gCh" kind="show" identifier="Show Image" id="LVQ-r2-1Ai"/>
+                        <segue destination="75k-j3-lhL" kind="popoverPresentation" identifier="Edit Waypoint" popoverAnchorView="BLE-Ko-jFV" id="EcS-nl-TJN">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -126,7 +128,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0f-oW-pOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="2uM-6C-KeR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="-504"/>
+            <point key="canvasLocation" x="1293" y="-433"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N1e-of-cGu">
@@ -145,24 +147,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuU-ag-s2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="348"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="f1Q-AR-VAH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yxw-4B-bpA" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TrO-e4-5XH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="75k-j3-lhL" kind="relationship" relationship="rootViewController" id="UY4-JU-t30"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJP-Wu-MEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2008" y="-504"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="l6W-Bc-j9Q">
