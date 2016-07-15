@@ -30,8 +30,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="BLE-Ko-jFV" id="jWf-iQ-geU"/>
-                        <outlet property="sad" destination="BLE-Ko-jFV" id="Ato-bu-1SN"/>
+                        <outlet property="mapView" destination="BLE-Ko-jFV" id="iSA-Po-rNJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

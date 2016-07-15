@@ -44,7 +44,7 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             mapView.delegate = self
         }
     }
-
+    
     
     
     

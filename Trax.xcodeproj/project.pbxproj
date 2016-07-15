@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		001C81B91D38729C00542432 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C81B81D38729C00542432 /* AppDelegate.swift */; };
-		001C81BB1D38729C00542432 /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C81BA1D38729C00542432 /* GPXViewController.swift */; };
 		001C81BE1D38729C00542432 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001C81BC1D38729C00542432 /* Main.storyboard */; };
 		001C81C01D38729C00542432 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 001C81BF1D38729C00542432 /* Assets.xcassets */; };
 		001C81C31D38729C00542432 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 001C81C11D38729C00542432 /* LaunchScreen.storyboard */; };
 		001C81CC1D3875B100542432 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C81CB1D3875B100542432 /* GPX.swift */; };
 		001C81CE1D38770200542432 /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C81CD1D38770200542432 /* MKGPX.swift */; };
+		001C81D01D38791600542432 /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001C81CF1D38791600542432 /* GPXViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		001C81B51D38729C00542432 /* Trax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		001C81B81D38729C00542432 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		001C81BA1D38729C00542432 /* GPXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
 		001C81BD1D38729C00542432 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		001C81BF1D38729C00542432 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		001C81C21D38729C00542432 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		001C81C41D38729C00542432 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		001C81CB1D3875B100542432 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		001C81CD1D38770200542432 /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
+		001C81CF1D38791600542432 /* GPXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 		001C81B71D38729C00542432 /* Trax */ = {
 			isa = PBXGroup;
 			children = (
-				001C81BA1D38729C00542432 /* GPXViewController.swift */,
 				001C81BC1D38729C00542432 /* Main.storyboard */,
+				001C81CF1D38791600542432 /* GPXViewController.swift */,
 				001C81CB1D3875B100542432 /* GPX.swift */,
 				001C81CD1D38770200542432 /* MKGPX.swift */,
 				001C81CA1D38733900542432 /* Supporting Files */,
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001C81BB1D38729C00542432 /* GPXViewController.swift in Sources */,
+				001C81D01D38791600542432 /* GPXViewController.swift in Sources */,
 				001C81CE1D38770200542432 /* MKGPX.swift in Sources */,
 				001C81B91D38729C00542432 /* AppDelegate.swift in Sources */,
 				001C81CC1D3875B100542432 /* GPX.swift in Sources */,
