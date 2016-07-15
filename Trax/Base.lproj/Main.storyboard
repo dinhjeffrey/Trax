@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-vk-UUI">
-                                <rect key="frame" x="20" y="72" width="560" height="68"/>
+                                <rect key="frame" x="20" y="28" width="560" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dMR-Om-G9W">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
@@ -78,6 +78,9 @@
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KN5-Bu-X8X">
                                                 <rect key="frame" x="96" y="0.0" width="464" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="hkt-fE-5uW"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -105,7 +108,6 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="Hu0-vk-UUI" secondAttribute="leading" id="2B8-CE-eOf"/>
                             <constraint firstItem="Hu0-vk-UUI" firstAttribute="top" secondItem="aNW-fy-l8u" secondAttribute="bottom" constant="8" id="4El-BE-hlB"/>
